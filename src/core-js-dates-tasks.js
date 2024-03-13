@@ -17,8 +17,9 @@
  * '01 Jan 1970 00:00:00 UTC' => 0
  * '04 Dec 1995 00:12:00 UTC' => 818035920000
  */
-function dateToTimestamp(/* date */) {
-  throw new Error('Not implemented');
+function dateToTimestamp(date) {
+  const time = new Date(date);
+  return time.getTime();
 }
 
 /**
@@ -31,8 +32,14 @@ function dateToTimestamp(/* date */) {
  * Date(2023, 5, 1, 8, 20, 55) => '08:20:55'
  * Date(2015, 10, 20, 23, 15, 1) => '23:15:01'
  */
-function getTime(/* date */) {
-  throw new Error('Not implemented');
+function getTime(date) {
+  const hours = String(date.getHours());
+  const minutes = String(date.getMinutes());
+  const seconds = String(date.getSeconds());
+  const h = hours.padStart(2, '0');
+  const m = minutes.padStart(2, '0');
+  const s = seconds.padStart(2, '0');
+  return `${h}:${m}:${s}`;
 }
 
 /**
@@ -46,8 +53,34 @@ function getTime(/* date */) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-function getDayName(/* date */) {
-  throw new Error('Not implemented');
+function getDayName(date) {
+  const day = new Date(date).getDay();
+
+  switch (day) {
+    case 0:
+      return 'Sunday';
+
+    case 1:
+      return 'Monday';
+
+    case 2:
+      return 'Tuesday';
+
+    case 3:
+      return 'Wednesday';
+
+    case 4:
+      return 'Thursday';
+
+    case 5:
+      return 'Friday';
+
+    case 6:
+      return 'Saturday';
+
+    default:
+      return 'Нет таких значений';
+  }
 }
 
 /**
@@ -76,8 +109,10 @@ function getNextFriday(/* date */) {
  * 1, 2024 => 31
  * 2, 2024 => 29
  */
-function getCountDaysInMonth(/* month, year */) {
-  throw new Error('Not implemented');
+function getCountDaysInMonth(month, year) {
+  const days = new Date(year, month, 0).getDate();
+
+  return days;
 }
 
 /**
