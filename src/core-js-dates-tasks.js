@@ -143,12 +143,20 @@ function getCountDaysOnPeriod(/* dateStart, dateEnd */) {
  * @return {boolean} - True if the date is within the range, false otherwise.
  *
  * @example:
+ *
  * '2024-02-01', { start: '2024-02-02', end: '2024-03-02' } => false
  * '2024-02-02', { start: '2024-02-02', end: '2024-03-02' } => true
  * '2024-02-10', { start: '2024-02-02', end: '2024-03-02' } => true
  */
-function isDateInPeriod(/* date, period */) {
-  throw new Error('Not implemented');
+function isDateInPeriod(date, period) {
+  const startDate = new Date(period.start);
+  const endDate = new Date(period.end);
+  const searchedDate = new Date(date);
+
+  if (searchedDate >= startDate && searchedDate <= endDate) {
+    return true;
+  }
+  return false;
 }
 
 /**
