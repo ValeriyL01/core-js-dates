@@ -26,7 +26,7 @@ function dateToTimestamp(date) {
  * Returns the time in hh:mm:ss format from the received date.
  *
  * @param {Date} date - date.
- * @return {string} name of the day of the week.
+ * @return {string} time in hh:mm:ss format.
  *
  * @example:
  * Date(2023, 5, 1, 8, 20, 55) => '08:20:55'
@@ -205,6 +205,8 @@ function getCountWeekendsInMonth(/* month, year */) {
 
 /**
  * Returns the week number of the year for a given date.
+ * The first week is the one that falls on January 1.
+ * The first day of the week is Monday.
  *
  * @param {Date} date - The date for which to find the week number.
  * @return {number} - The week number of the year.
